@@ -1,21 +1,345 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-<meta name="chromevox" content-script="no">
-<title>AI 智慧職能應用培育課程 | 佳里奇美醫院</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" nonce="bEL5bGvTKHaXlAtYFrreEQ"><link rel="stylesheet" href="/static/macros/client/css/2107809627-mae_html_css_ltr.css">
-<script type="text/javascript" src="/static/macros/client/js/1175033635-warden_bin_i18n_warden__zh_tw.js" nonce="4ulbhKJfvVMNe8bnMQB4yA"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數位醫管新紀元：AI 智慧職能應用培育課程 | 佳里奇美醫院</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg-deep:#0c1222;--bg-card:rgba(17,25,44,0.85);--glass:rgba(255,255,255,0.04);--glass-border:rgba(255,255,255,0.07);--cyan:#56c8d8;--purple:#a78bfa;--teal:#2dd4bf;--amber:#fbbf24;--text:#e2e8f0;--text-dim:#8896ab;--text-muted:#5a6a80;--success:#34d399;--error:#f87171;--border:rgba(255,255,255,0.06);--radius:16px;--shadow:0 4px 30px rgba(0,0,0,0.4)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC','Sora',sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 600px 400px at 20% 20%,rgba(86,200,216,0.06) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 80% 70%,rgba(167,139,250,0.05) 0%,transparent 70%),radial-gradient(ellipse 400px 300px at 50% 50%,rgba(45,212,191,0.03) 0%,transparent 60%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+.hero{position:relative;padding:70px 20px 90px;text-align:center;overflow:hidden;z-index:1}
+.hero-grid{position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(86,200,216,0.08) 0%,transparent 50%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:850px;margin:0 auto}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);padding:7px 20px;border-radius:100px;color:var(--cyan);font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
+.hero-chip .dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-size:clamp(30px,5.5vw,52px);font-weight:900;line-height:1.25;margin-bottom:16px;background:linear-gradient(135deg,#e2e8f0 0%,#56c8d8 50%,#a78bfa 100%);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 6s ease-in-out infinite}
+@keyframes gradient-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero-sub{color:var(--text-dim);font-size:clamp(14px,2.2vw,17px);font-weight:300;letter-spacing:0.5px}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-cta{margin-top:32px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.hero-cta a{text-decoration:none;padding:12px 28px;border-radius:10px;font-family:'Noto Sans TC',sans-serif;font-size:15px;font-weight:600;transition:all 0.3s}
+.cta-primary{background:linear-gradient(135deg,var(--cyan),#3ba3b0);color:#0c1222;box-shadow:0 0 20px rgba(86,200,216,0.2)}
+.cta-primary:hover{box-shadow:0 0 30px rgba(86,200,216,0.35);transform:translateY(-2px)}
+.cta-ghost{border:1px solid var(--glass-border);color:var(--text-dim);background:var(--glass);backdrop-filter:blur(8px)}
+.cta-ghost:hover{border-color:rgba(255,255,255,0.15);color:var(--text)}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+.section{padding:60px 0}
+.section-header{text-align:center;margin-bottom:44px}
+.section-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.section-title{font-size:26px;font-weight:700;color:var(--text)}
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:32px}
+.course-card{background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:30px 26px;position:relative;overflow:hidden;transition:transform 0.35s,box-shadow 0.35s,border-color 0.35s}
+.course-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.course-card:nth-child(1):hover{border-color:rgba(86,200,216,0.25)}.course-card:nth-child(2):hover{border-color:rgba(167,139,250,0.25)}.course-card:nth-child(3):hover{border-color:rgba(45,212,191,0.25)}
+.course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.course-card:nth-child(1)::before{background:linear-gradient(90deg,var(--cyan),transparent)}.course-card:nth-child(2)::before{background:linear-gradient(90deg,var(--purple),transparent)}.course-card:nth-child(3)::before{background:linear-gradient(90deg,var(--teal),transparent)}
+.course-card::after{content:'';position:absolute;width:120px;height:120px;border-radius:50%;top:-40px;right:-40px;filter:blur(50px);opacity:0.12;pointer-events:none}
+.course-card:nth-child(1)::after{background:var(--cyan)}.course-card:nth-child(2)::after{background:var(--purple)}.course-card:nth-child(3)::after{background:var(--teal)}
+.course-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.course-card:nth-child(1) .course-num{color:var(--cyan)}.course-card:nth-child(2) .course-num{color:var(--purple)}.course-card:nth-child(3) .course-num{color:var(--teal)}
+.course-card h3{font-size:21px;font-weight:700;margin-bottom:10px}
+.course-desc{color:var(--text-dim);font-size:13.5px;margin-bottom:20px;line-height:1.8}
+.course-meta{display:flex;flex-direction:column;gap:8px}
+.meta-item{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text-dim)}
+.meta-icon{width:30px;height:30px;border-radius:8px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.capacity-badge{margin-top:16px;padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.capacity-bar-wrap{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,0.06);overflow:hidden}
+.capacity-bar{height:100%;border-radius:3px;transition:width 0.6s ease}
+.capacity-bar.green{background:var(--success)}.capacity-bar.amber{background:var(--amber)}.capacity-bar.red{background:var(--error)}
+.capacity-text{font-family:'Space Mono',monospace;font-size:12px;white-space:nowrap}
+.capacity-text.green{color:var(--success)}.capacity-text.amber{color:var(--amber)}.capacity-text.red{color:var(--error)}
+.capacity-loading{color:var(--text-muted);font-size:12px;font-family:'Space Mono',monospace}
+.tools-bar{background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:22px 28px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.tools-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-right:8px}
+.tool-chip{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--text-dim);padding:6px 14px;border-radius:100px;background:var(--glass);border:1px solid var(--border);transition:border-color 0.2s}
+.tool-chip:hover{border-color:rgba(255,255,255,0.12)}
+.tool-dot{width:7px;height:7px;border-radius:50%}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.info-card{background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:12px;padding:24px;text-align:center;transition:border-color 0.3s}
+.info-card:hover{border-color:rgba(255,255,255,0.1)}
+.info-card .icon{font-size:24px;margin-bottom:10px}.info-card .label{font-size:12px;color:var(--text-muted);margin-bottom:4px}.info-card .value{font-size:17px;font-weight:700}
+.tab-container{background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.tab-nav{display:flex;border-bottom:1px solid var(--border)}
+.tab-btn{flex:1;padding:16px;background:none;border:none;font-family:'Noto Sans TC',sans-serif;font-size:15px;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all 0.3s;position:relative}
+.tab-btn:hover{color:var(--text-dim)}.tab-btn.active{color:var(--cyan)}
+.tab-btn.active::after{content:'';position:absolute;bottom:-1px;left:20%;width:60%;height:2px;background:var(--cyan);border-radius:2px 2px 0 0;box-shadow:0 0 10px rgba(86,200,216,0.3)}
+.tab-body{padding:32px;display:none}.tab-body.active{display:block}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column}.form-group.full{grid-column:1/-1}
+.form-group label{font-size:13px;font-weight:500;color:var(--text-dim);margin-bottom:6px}
+.form-group label .req{color:var(--error)}
+.form-group input,.form-group select{padding:11px 16px;border:1px solid var(--glass-border);border-radius:10px;font-family:'Noto Sans TC',sans-serif;font-size:14px;color:var(--text);background:rgba(255,255,255,0.03);transition:border-color 0.2s,box-shadow 0.2s;outline:none}
+.form-group input::placeholder{color:var(--text-muted)}
+.form-group input:focus,.form-group select:focus{border-color:rgba(86,200,216,0.4);box-shadow:0 0 0 3px rgba(86,200,216,0.08)}
+.checkbox-group{display:flex;flex-direction:column;gap:10px}
+.checkbox-label{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--glass-border);border-radius:10px;cursor:pointer;transition:all 0.2s;font-size:14px;color:var(--text-dim)}
+.checkbox-label:hover{border-color:rgba(86,200,216,0.2);background:rgba(86,200,216,0.03)}
+.checkbox-label.disabled{opacity:0.45;cursor:not-allowed;pointer-events:none}
+.checkbox-label input[type="checkbox"]{width:16px;height:16px;accent-color:var(--cyan)}
+.checkbox-label .cb-info{margin-left:auto;display:flex;align-items:center;gap:8px}
+.checkbox-label .cb-date{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted)}
+.cb-remaining{font-family:'Space Mono',monospace;font-size:11px;padding:2px 8px;border-radius:100px}
+.cb-remaining.green{background:rgba(52,211,153,0.12);color:var(--success)}.cb-remaining.amber{background:rgba(251,191,36,0.12);color:var(--amber)}.cb-remaining.red{background:rgba(248,113,113,0.12);color:var(--error)}
+.btn{padding:13px 30px;border:none;border-radius:10px;font-family:'Noto Sans TC',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),#3ba3b0);color:var(--bg-deep);box-shadow:0 0 20px rgba(86,200,216,0.15)}
+.btn-primary:hover{box-shadow:0 0 30px rgba(86,200,216,0.3);transform:translateY(-2px)}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-outline{background:transparent;color:var(--cyan);border:1px solid rgba(86,200,216,0.3)}
+.btn-outline:hover{background:rgba(86,200,216,0.06);border-color:rgba(86,200,216,0.5)}
+.msg{padding:16px 20px;border-radius:10px;font-size:13.5px;margin-top:20px;display:none;line-height:1.7}
+.msg.show{display:block;animation:fadeIn 0.3s}
+.msg-success{background:rgba(52,211,153,0.1);color:#6ee7b7;border:1px solid rgba(52,211,153,0.2)}
+.msg-error{background:rgba(248,113,113,0.1);color:#fca5a5;border:1px solid rgba(248,113,113,0.2)}
+.msg-info{background:rgba(86,200,216,0.08);color:var(--cyan);border:1px solid rgba(86,200,216,0.15)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.query-results{margin-top:20px}
+.result-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:20px;margin-bottom:12px;border-left:3px solid var(--cyan)}
+.result-card h4{font-size:15px;font-weight:600;margin-bottom:10px}
+.result-row{display:flex;gap:12px;font-size:13px;padding:3px 0}
+.result-label{color:var(--text-muted);min-width:75px}.result-value{color:var(--text-dim);font-weight:500}
+.status-badge{display:inline-block;padding:2px 12px;border-radius:100px;font-size:11px;font-weight:600}
+.status-confirmed{background:rgba(52,211,153,0.15);color:#6ee7b7}
+.footer{position:relative;z-index:1;border-top:1px solid var(--border);color:var(--text-muted);text-align:center;padding:32px 20px;font-size:12px}
+.footer strong{color:var(--text-dim)}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(12,18,34,0.3);border-top-color:var(--bg-deep);border-radius:50%;animation:spin 0.6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+html{scroll-behavior:smooth}
+@media(max-width:480px){.hero{padding:50px 16px 70px}.tools-bar{gap:8px}.tool-chip{font-size:12px;padding:5px 10px}.tab-body{padding:20px 16px}}
+</style>
 </head>
 <body>
-<table id="warning-bar-table" class="full_size" cellspacing="0" cellpadding="0"><tr><td><div id="warning" class="warning-bar"></div></td></tr><tr><td style="height: 100%"><iframe id="sandboxFrame" title="AI 智慧職能應用培育課程 | 佳里奇美醫院" allow="accelerometer *; ambient-light-sensor *; autoplay *; clipboard-read *; clipboard-write *; encrypted-media *; fullscreen *; geolocation *; gyroscope *; local-network-access *; magnetometer *; midi *; payment *; picture-in-picture *; screen-wake-lock *; speaker *; sync-xhr *; vibrate *; vr *; web-share *" sandbox="allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-storage-access-by-user-activation">
-</iframe>
-</td></tr></table><script nonce="4ulbhKJfvVMNe8bnMQB4yA">
-(function() {
-var el = document.getElementById('sandboxFrame');
-el.onload = function() {
-goog.script.init("\x7b\x22functionNames\x22:\x5b\x22doGet\x22,\x22handleGetApi\x22,\x22doPost\x22,\x22getCounts\x22,\x22registerStudent\x22,\x22queryStudent\x22,\x22safeString\x22,\x22countRegistrations\x22,\x22buildCountsResponse\x22,\x22createJsonResponse\x22\x5d,\x22sandboxMode\x22:\x22IFRAME_SANDBOX\x22,\x22callbackTimeout\x22:390000,\x22deploymentId\x22:\x22AKfycbx7Dn_X7M8UwdkTNghWaqX_UCFRHptV4ETJYc9kD8tqQlSrfiR0H796tQHhMuSEwq1U\x22,\x22eei\x22:\x22\x22,\x22sandboxHost\x22:\x22https:\/\/n-iwhws5wo4jgyvdeebfylqlphgylirqbarap23zq-0lu-script.googleusercontent.com\x22,\x22clientSideProperties\x22:\x7b\x22google.script.sandbox.mode\x22:\x22IFRAME_SANDBOX\x22,\x22google.script.host.origin\x22:\x22https:\/\/docs.google.com\x22\x7d,\x22actionPrefix\x22:\x22\/macros\/s\/AKfycbx7Dn_X7M8UwdkTNghWaqX_UCFRHptV4ETJYc9kD8tqQlSrfiR0H796tQHhMuSEwq1U\x22,\x22userHtml\x22:\x22\x3c!DOCTYPE html\x3e\\n\x3chtml lang\x3d\\\x22zh-TW\\\x22\x3e\\n\x3chead\x3e\\n\x3cmeta charset\x3d\\\x22UTF-8\\\x22\x3e\\n\x3cmeta name\x3d\\\x22viewport\\\x22 content\x3d\\\x22width\x3ddevice-width, initial-scale\x3d1.0\\\x22\x3e\\n\x3ctitle\x3e數位醫管新紀元：AI 智慧職能應用培育課程 | 佳里奇美醫院\x3c\\\/title\x3e\\n\x3clink href\x3d\\\x22https:\/\/fonts.googleapis.com\/css2?family\x3dNoto\x26#43;Sans\x26#43;TC:wght@300;400;500;700;900\x26amp;family\x3dSpace\x26#43;Mono:wght@400;700\x26amp;family\x3dSora:wght@300;400;600;700;800\x26amp;display\x3dswap\\\x22 rel\x3d\\\x22stylesheet\\\x22\x3e\\n\x3cstyle\x3e\\n:root \x7b\\n  --bg-deep: #0c1222;\\n  --bg-card: rgba(17, 25, 44, 0.85);\\n  --glass: rgba(255,255,255,0.04);\\n  --glass-border: rgba(255,255,255,0.07);\\n  --cyan: #56c8d8;\\n  --purple: #a78bfa;\\n  --teal: #2dd4bf;\\n  --amber: #fbbf24;\\n  --text: #e2e8f0;\\n  --text-dim: #8896ab;\\n  --text-muted: #5a6a80;\\n  --success: #34d399;\\n  --error: #f87171;\\n  --border: rgba(255,255,255,0.06);\\n  --radius: 16px;\\n  --shadow: 0 4px 30px rgba(0,0,0,0.4);\\n\x7d\\n*\x7bmargin:0;padding:0;box-sizing:border-box\x7d\\nbody\x7bfont-family:\x27Noto Sans TC\x27,\x27Sora\x27,sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased\x7d\\nbody::before\x7bcontent:\x27\x27;position:fixed;inset:0;background:radial-gradient(ellipse 600px 400px at 20% 20%,rgba(86,200,216,0.06) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 80% 70%,rgba(167,139,250,0.05) 0%,transparent 70%),radial-gradient(ellipse 400px 300px at 50% 50%,rgba(45,212,191,0.03) 0%,transparent 60%);pointer-events:none;z-index:0\x7d\\nbody::after\x7bcontent:\x27\x27;position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0\x7d\\n\\n.hero\x7bposition:relative;padding:70px 20px 90px;text-align:center;overflow:hidden;z-index:1\x7d\\n.hero-grid\x7bposition:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(86,200,216,0.08) 0%,transparent 50%);pointer-events:none\x7d\\n.hero-content\x7bposition:relative;z-index:2;max-width:850px;margin:0 auto\x7d\\n.hero-chip\x7bdisplay:inline-flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);padding:7px 20px;border-radius:100px;color:var(--cyan);font-family:\x27Space Mono\x27,monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px\x7d\\n.hero-chip .dot\x7bwidth:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan);animation:pulse-dot 2s ease-in-out infinite\x7d\\n@keyframes pulse-dot\x7b0%,100%\x7bopacity:1\x7d50%\x7bopacity:0.4\x7d\x7d\\n.hero h1\x7bfont-size:clamp(30px,5.5vw,52px);font-weight:900;line-height:1.25;margin-bottom:16px;background:linear-gradient(135deg,#e2e8f0 0%,#56c8d8 50%,#a78bfa 100%);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 6s ease-in-out infinite\x7d\\n@keyframes gradient-shift\x7b0%,100%\x7bbackground-position:0% 50%\x7d50%\x7bbackground-position:100% 50%\x7d\x7d\\n.hero-sub\x7bcolor:var(--text-dim);font-size:clamp(14px,2.2vw,17px);font-weight:300;letter-spacing:0.5px\x7d\\n.hero-sub strong\x7bcolor:var(--text);font-weight:500\x7d\\n.hero-cta\x7bmargin-top:32px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap\x7d\\n.hero-cta a\x7btext-decoration:none;padding:12px 28px;border-radius:10px;font-family:\x27Noto Sans TC\x27,sans-serif;font-size:15px;font-weight:600;transition:all 0.3s\x7d\\n.cta-primary\x7bbackground:linear-gradient(135deg,var(--cyan),#3ba3b0);color:#0c1222;box-shadow:0 0 20px rgba(86,200,216,0.2)\x7d\\n.cta-primary:hover\x7bbox-shadow:0 0 30px rgba(86,200,216,0.35);transform:translateY(-2px)\x7d\\n.cta-ghost\x7bborder:1px solid var(--glass-border);color:var(--text-dim);background:var(--glass);backdrop-filter:blur(8px)\x7d\\n.cta-ghost:hover\x7bborder-color:rgba(255,255,255,0.15);color:var(--text)\x7d\\n\\n.container\x7bmax-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1\x7d\\n.section\x7bpadding:60px 0\x7d\\n.section-header\x7btext-align:center;margin-bottom:44px\x7d\\n.section-label\x7bfont-family:\x27Space Mono\x27,monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px\x7d\\n.section-title\x7bfont-size:26px;font-weight:700;color:var(--text)\x7d\\n\\n.courses-grid\x7bdisplay:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:32px\x7d\\n.course-card\x7bbackground:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:30px 26px;position:relative;overflow:hidden;transition:transform 0.35s,box-shadow 0.35s,border-color 0.35s\x7d\\n.course-card:hover\x7btransform:translateY(-4px);box-shadow:var(--shadow)\x7d\\n.course-card:nth-child(1):hover\x7bborder-color:rgba(86,200,216,0.25)\x7d\\n.course-card:nth-child(2):hover\x7bborder-color:rgba(167,139,250,0.25)\x7d\\n.course-card:nth-child(3):hover\x7bborder-color:rgba(45,212,191,0.25)\x7d\\n.course-card::before\x7bcontent:\x27\x27;position:absolute;top:0;left:0;right:0;height:2px\x7d\\n.course-card:nth-child(1)::before\x7bbackground:linear-gradient(90deg,var(--cyan),transparent)\x7d\\n.course-card:nth-child(2)::before\x7bbackground:linear-gradient(90deg,var(--purple),transparent)\x7d\\n.course-card:nth-child(3)::before\x7bbackground:linear-gradient(90deg,var(--teal),transparent)\x7d\\n.course-card::after\x7bcontent:\x27\x27;position:absolute;width:120px;height:120px;border-radius:50%;top:-40px;right:-40px;filter:blur(50px);opacity:0.12;pointer-events:none\x7d\\n.course-card:nth-child(1)::after\x7bbackground:var(--cyan)\x7d\\n.course-card:nth-child(2)::after\x7bbackground:var(--purple)\x7d\\n.course-card:nth-child(3)::after\x7bbackground:var(--teal)\x7d\\n.course-num\x7bfont-family:\x27Space Mono\x27,monospace;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px\x7d\\n.course-card:nth-child(1) .course-num\x7bcolor:var(--cyan)\x7d\\n.course-card:nth-child(2) .course-num\x7bcolor:var(--purple)\x7d\\n.course-card:nth-child(3) .course-num\x7bcolor:var(--teal)\x7d\\n.course-card h3\x7bfont-size:21px;font-weight:700;margin-bottom:10px\x7d\\n.course-desc\x7bcolor:var(--text-dim);font-size:13.5px;margin-bottom:20px;line-height:1.8\x7d\\n.course-meta\x7bdisplay:flex;flex-direction:column;gap:8px\x7d\\n.meta-item\x7bdisplay:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text-dim)\x7d\\n.meta-icon\x7bwidth:30px;height:30px;border-radius:8px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px\x7d\\n\\n.capacity-badge\x7bmargin-top:16px;padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;gap:12px\x7d\\n.capacity-bar-wrap\x7bflex:1;height:6px;border-radius:3px;background:rgba(255,255,255,0.06);overflow:hidden\x7d\\n.capacity-bar\x7bheight:100%;border-radius:3px;transition:width 0.6s ease\x7d\\n.capacity-bar.green\x7bbackground:var(--success)\x7d\\n.capacity-bar.amber\x7bbackground:var(--amber)\x7d\\n.capacity-bar.red\x7bbackground:var(--error)\x7d\\n.capacity-text\x7bfont-family:\x27Space Mono\x27,monospace;font-size:12px;white-space:nowrap\x7d\\n.capacity-text.green\x7bcolor:var(--success)\x7d\\n.capacity-text.amber\x7bcolor:var(--amber)\x7d\\n.capacity-text.red\x7bcolor:var(--error)\x7d\\n.capacity-loading\x7bcolor:var(--text-muted);font-size:12px;font-family:\x27Space Mono\x27,monospace\x7d\\n\\n.tools-bar\x7bbackground:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:22px 28px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap\x7d\\n.tools-label\x7bfont-family:\x27Space Mono\x27,monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-right:8px\x7d\\n.tool-chip\x7bdisplay:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--text-dim);padding:6px 14px;border-radius:100px;background:var(--glass);border:1px solid var(--border);transition:border-color 0.2s\x7d\\n.tool-chip:hover\x7bborder-color:rgba(255,255,255,0.12)\x7d\\n.tool-dot\x7bwidth:7px;height:7px;border-radius:50%\x7d\\n\\n.info-grid\x7bdisplay:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px\x7d\\n.info-card\x7bbackground:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:12px;padding:24px;text-align:center;transition:border-color 0.3s\x7d\\n.info-card:hover\x7bborder-color:rgba(255,255,255,0.1)\x7d\\n.info-card .icon\x7bfont-size:24px;margin-bottom:10px\x7d\\n.info-card .label\x7bfont-size:12px;color:var(--text-muted);margin-bottom:4px\x7d\\n.info-card .value\x7bfont-size:17px;font-weight:700\x7d\\n\\n.tab-container\x7bbackground:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)\x7d\\n.tab-nav\x7bdisplay:flex;border-bottom:1px solid var(--border)\x7d\\n.tab-btn\x7bflex:1;padding:16px;background:none;border:none;font-family:\x27Noto Sans TC\x27,sans-serif;font-size:15px;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all 0.3s;position:relative\x7d\\n.tab-btn:hover\x7bcolor:var(--text-dim)\x7d\\n.tab-btn.active\x7bcolor:var(--cyan)\x7d\\n.tab-btn.active::after\x7bcontent:\x27\x27;position:absolute;bottom:-1px;left:20%;width:60%;height:2px;background:var(--cyan);border-radius:2px 2px 0 0;box-shadow:0 0 10px rgba(86,200,216,0.3)\x7d\\n.tab-body\x7bpadding:32px;display:none\x7d\\n.tab-body.active\x7bdisplay:block\x7d\\n\\n.form-grid\x7bdisplay:grid;grid-template-columns:1fr 1fr;gap:18px\x7d\\n@media(max-width:600px)\x7b.form-grid\x7bgrid-template-columns:1fr\x7d\x7d\\n.form-group\x7bdisplay:flex;flex-direction:column\x7d\\n.form-group.full\x7bgrid-column:1\/-1\x7d\\n.form-group label\x7bfont-size:13px;font-weight:500;color:var(--text-dim);margin-bottom:6px\x7d\\n.form-group label .req\x7bcolor:var(--error)\x7d\\n.form-group input,.form-group select\x7bpadding:11px 16px;border:1px solid var(--glass-border);border-radius:10px;font-family:\x27Noto Sans TC\x27,sans-serif;font-size:14px;color:var(--text);background:rgba(255,255,255,0.03);transition:border-color 0.2s,box-shadow 0.2s;outline:none\x7d\\n.form-group input::placeholder\x7bcolor:var(--text-muted)\x7d\\n.form-group input:focus,.form-group select:focus\x7bborder-color:rgba(86,200,216,0.4);box-shadow:0 0 0 3px rgba(86,200,216,0.08)\x7d\\n\\n.checkbox-group\x7bdisplay:flex;flex-direction:column;gap:10px\x7d\\n.checkbox-label\x7bdisplay:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--glass-border);border-radius:10px;cursor:pointer;transition:all 0.2s;font-size:14px;color:var(--text-dim)\x7d\\n.checkbox-label:hover\x7bborder-color:rgba(86,200,216,0.2);background:rgba(86,200,216,0.03)\x7d\\n.checkbox-label.disabled\x7bopacity:0.45;cursor:not-allowed;pointer-events:none\x7d\\n.checkbox-label input\x5btype\x3d\\\x22checkbox\\\x22\x5d\x7bwidth:16px;height:16px;accent-color:var(--cyan)\x7d\\n.checkbox-label .cb-info\x7bmargin-left:auto;display:flex;align-items:center;gap:8px\x7d\\n.checkbox-label .cb-date\x7bfont-family:\x27Space Mono\x27,monospace;font-size:11px;color:var(--text-muted)\x7d\\n.cb-remaining\x7bfont-family:\x27Space Mono\x27,monospace;font-size:11px;padding:2px 8px;border-radius:100px\x7d\\n.cb-remaining.green\x7bbackground:rgba(52,211,153,0.12);color:var(--success)\x7d\\n.cb-remaining.amber\x7bbackground:rgba(251,191,36,0.12);color:var(--amber)\x7d\\n.cb-remaining.red\x7bbackground:rgba(248,113,113,0.12);color:var(--error)\x7d\\n\\n.btn\x7bpadding:13px 30px;border:none;border-radius:10px;font-family:\x27Noto Sans TC\x27,sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;justify-content:center;gap:8px\x7d\\n.btn-primary\x7bbackground:linear-gradient(135deg,var(--cyan),#3ba3b0);color:var(--bg-deep);box-shadow:0 0 20px rgba(86,200,216,0.15)\x7d\\n.btn-primary:hover\x7bbox-shadow:0 0 30px rgba(86,200,216,0.3);transform:translateY(-2px)\x7d\\n.btn-primary:disabled\x7bopacity:0.5;cursor:not-allowed;transform:none\x7d\\n.btn-outline\x7bbackground:transparent;color:var(--cyan);border:1px solid rgba(86,200,216,0.3)\x7d\\n.btn-outline:hover\x7bbackground:rgba(86,200,216,0.06);border-color:rgba(86,200,216,0.5)\x7d\\n\\n.msg\x7bpadding:16px 20px;border-radius:10px;font-size:13.5px;margin-top:20px;display:none;line-height:1.7\x7d\\n.msg.show\x7bdisplay:block;animation:fadeIn 0.3s\x7d\\n.msg-success\x7bbackground:rgba(52,211,153,0.1);color:#6ee7b7;border:1px solid rgba(52,211,153,0.2)\x7d\\n.msg-error\x7bbackground:rgba(248,113,113,0.1);color:#fca5a5;border:1px solid rgba(248,113,113,0.2)\x7d\\n.msg-info\x7bbackground:rgba(86,200,216,0.08);color:var(--cyan);border:1px solid rgba(86,200,216,0.15)\x7d\\n@keyframes fadeIn\x7bfrom\x7bopacity:0;transform:translateY(-6px)\x7dto\x7bopacity:1;transform:translateY(0)\x7d\x7d\\n\\n.query-results\x7bmargin-top:20px\x7d\\n.result-card\x7bbackground:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:20px;margin-bottom:12px;border-left:3px solid var(--cyan)\x7d\\n.result-card h4\x7bfont-size:15px;font-weight:600;margin-bottom:10px\x7d\\n.result-row\x7bdisplay:flex;gap:12px;font-size:13px;padding:3px 0\x7d\\n.result-label\x7bcolor:var(--text-muted);min-width:75px\x7d\\n.result-value\x7bcolor:var(--text-dim);font-weight:500\x7d\\n.status-badge\x7bdisplay:inline-block;padding:2px 12px;border-radius:100px;font-size:11px;font-weight:600\x7d\\n.status-confirmed\x7bbackground:rgba(52,211,153,0.15);color:#6ee7b7\x7d\\n\\n.footer\x7bposition:relative;z-index:1;border-top:1px solid var(--border);color:var(--text-muted);text-align:center;padding:32px 20px;font-size:12px\x7d\\n.footer strong\x7bcolor:var(--text-dim)\x7d\\n\\n.spinner\x7bdisplay:inline-block;width:16px;height:16px;border:2px solid rgba(12,18,34,0.3);border-top-color:var(--bg-deep);border-radius:50%;animation:spin 0.6s linear infinite\x7d\\n@keyframes spin\x7bto\x7btransform:rotate(360deg)\x7d\x7d\\nhtml\x7bscroll-behavior:smooth\x7d\\n@media(max-width:480px)\x7b.hero\x7bpadding:50px 16px 70px\x7d.tools-bar\x7bgap:8px\x7d.tool-chip\x7bfont-size:12px;padding:5px 10px\x7d.tab-body\x7bpadding:20px 16px\x7d\x7d\\n\x3c\\\/style\x3e\\n\x3c\\\/head\x3e\\n\x3cbody\x3e\\n\\n\x3cheader class\x3d\\\x22hero\\\x22\x3e\\n  \x3cdiv class\x3d\\\x22hero-grid\\\x22\x3e\x3c\\\/div\x3e\\n  \x3cdiv class\x3d\\\x22hero-content\\\x22\x3e\\n    \x3cdiv class\x3d\\\x22hero-chip\\\x22\x3e\x3cspan class\x3d\\\x22dot\\\x22\x3e\x3c\\\/span\x3e 佳里奇美醫院\x3c\\\/div\x3e\\n    \x3ch1\x3e數位醫管新紀元\x3cbr\x3eAI 智慧職能應用培育課程\x3c\\\/h1\x3e\\n    \x3cp class\x3d\\\x22hero-sub\\\x22\x3e\x3cstrong\x3e推動智慧醫療、優化職場環境\x3c\\\/strong\x3e ── AI 賦能三部曲\x3c\\\/p\x3e\\n    \x3cdiv class\x3d\\\x22hero-cta\\\x22\x3e\\n      \x3ca href\x3d\\\x22#register-section\\\x22 class\x3d\\\x22cta-primary\\\x22\x3e立即報名 →\x3c\\\/a\x3e\\n      \x3ca href\x3d\\\x22#courses\\\x22 class\x3d\\\x22cta-ghost\\\x22\x3e瀏覽課程\x3c\\\/a\x3e\\n    \x3c\\\/div\x3e\\n  \x3c\\\/div\x3e\\n\x3c\\\/header\x3e\\n\\n\x3csection class\x3d\\\x22section\\\x22 id\x3d\\\x22courses\\\x22\x3e\\n  \x3cdiv class\x3d\\\x22container\\\x22\x3e\\n    \x3cdiv class\x3d\\\x22section-header\\\x22\x3e\\n      \x3cdiv class\x3d\\\x22section-label\\\x22\x3eCurriculum\x3c\\\/div\x3e\\n      \x3ch2 class\x3d\\\x22section-title\\\x22\x3e課程總覽\x3c\\\/h2\x3e\\n    \x3c\\\/div\x3e\\n    \x3cdiv class\x3d\\\x22courses-grid\\\x22\x3e\\n      \x3cdiv class\x3d\\\x22course-card\\\x22\x3e\\n        \x3cdiv class\x3d\\\x22course-num\\\x22\x3ePart 01\x3c\\\/div\x3e\\n        \x3ch3\x3e生成式 AI 工作術\x3c\\\/h3\x3e\\n        \x3cp class\x3d\\\x22course-desc\\\x22\x3ePrompt 技巧、個人助理、製作簡報、數據分析\\u2014\\u2014用 AI 重塑日常工作流程。\x3c\\\/p\x3e\\n        \x3cdiv class\x3d\\\x22course-meta\\\x22\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e📅\x3c\\\/div\x3e 115\/06\/04（週四）\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e🕙\x3c\\\/div\x3e 10:00 \\u2013 12:00\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e📍\x3c\\\/div\x3e A81 會議室\x3c\\\/div\x3e\\n        \x3c\\\/div\x3e\\n        \x3cdiv class\x3d\\\x22capacity-badge\\\x22 id\x3d\\\x22cap-card-0\\\x22\x3e\x3cspan class\x3d\\\x22capacity-loading\\\x22\x3e⏳ 載入名額中...\x3c\\\/span\x3e\x3c\\\/div\x3e\\n      \x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22course-card\\\x22\x3e\\n        \x3cdiv class\x3d\\\x22course-num\\\x22\x3ePart 02\x3c\\\/div\x3e\\n        \x3ch3\x3e影音自造時代\x3c\\\/h3\x3e\\n        \x3cp class\x3d\\\x22course-desc\\\x22\x3e腳本生成、影音製作、虛擬應用\\u2014\\u2014零基礎也能產出專業級影音內容。\x3c\\\/p\x3e\\n        \x3cdiv class\x3d\\\x22course-meta\\\x22\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e📅\x3c\\\/div\x3e 115\/07\/09（週四）\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e🕙\x3c\\\/div\x3e 10:00 \\u2013 12:00\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e📍\x3c\\\/div\x3e A81 會議室\x3c\\\/div\x3e\\n        \x3c\\\/div\x3e\\n        \x3cdiv class\x3d\\\x22capacity-badge\\\x22 id\x3d\\\x22cap-card-1\\\x22\x3e\x3cspan class\x3d\\\x22capacity-loading\\\x22\x3e⏳ 載入名額中...\x3c\\\/span\x3e\x3c\\\/div\x3e\\n      \x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22course-card\\\x22\x3e\\n        \x3cdiv class\x3d\\\x22course-num\\\x22\x3ePart 03\x3c\\\/div\x3e\\n        \x3ch3\x3e零程式碼革命\x3c\\\/h3\x3e\\n        \x3cp class\x3d\\\x22course-desc\\\x22\x3e資訊網頁、無代碼架設、整合應用\\u2014\\u2014不寫程式也能打造數位工具。\x3c\\\/p\x3e\\n        \x3cdiv class\x3d\\\x22course-meta\\\x22\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e📅\x3c\\\/div\x3e 115\/07\/23（週四）\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e🕙\x3c\\\/div\x3e 10:00 \\u2013 12:00\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22meta-item\\\x22\x3e\x3cdiv class\x3d\\\x22meta-icon\\\x22\x3e📍\x3c\\\/div\x3e A81 會議室\x3c\\\/div\x3e\\n        \x3c\\\/div\x3e\\n        \x3cdiv class\x3d\\\x22capacity-badge\\\x22 id\x3d\\\x22cap-card-2\\\x22\x3e\x3cspan class\x3d\\\x22capacity-loading\\\x22\x3e⏳ 載入名額中...\x3c\\\/span\x3e\x3c\\\/div\x3e\\n      \x3c\\\/div\x3e\\n    \x3c\\\/div\x3e\\n    \x3cdiv class\x3d\\\x22tools-bar\\\x22\x3e\\n      \x3cspan class\x3d\\\x22tools-label\\\x22\x3eTools ▸\x3c\\\/span\x3e\\n      \x3cdiv class\x3d\\\x22tool-chip\\\x22\x3e\x3cspan class\x3d\\\x22tool-dot\\\x22 style\x3d\\\x22background:#10a37f\\\x22\x3e\x3c\\\/span\x3e ChatGPT\x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22tool-chip\\\x22\x3e\x3cspan class\x3d\\\x22tool-dot\\\x22 style\x3d\\\x22background:#6b8afd\\\x22\x3e\x3c\\\/span\x3e Gemini\x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22tool-chip\\\x22\x3e\x3cspan class\x3d\\\x22tool-dot\\\x22 style\x3d\\\x22background:#d4a574\\\x22\x3e\x3c\\\/span\x3e Claude\x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22tool-chip\\\x22\x3e\x3cspan class\x3d\\\x22tool-dot\\\x22 style\x3d\\\x22background:#e06666\\\x22\x3e\x3c\\\/span\x3e NotebookLM\x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22tool-chip\\\x22\x3e\x3cspan class\x3d\\\x22tool-dot\\\x22 style\x3d\\\x22background:#6aaa64\\\x22\x3e\x3c\\\/span\x3e Apps Script\x3c\\\/div\x3e\\n    \x3c\\\/div\x3e\\n  \x3c\\\/div\x3e\\n\x3c\\\/section\x3e\\n\\n\x3csection class\x3d\\\x22section\\\x22 style\x3d\\\x22padding-top:0\\\x22\x3e\\n  \x3cdiv class\x3d\\\x22container\\\x22\x3e\\n    \x3cdiv class\x3d\\\x22section-header\\\x22\x3e\\n      \x3cdiv class\x3d\\\x22section-label\\\x22\x3eInformation\x3c\\\/div\x3e\\n      \x3ch2 class\x3d\\\x22section-title\\\x22\x3e報名須知\x3c\\\/h2\x3e\\n    \x3c\\\/div\x3e\\n    \x3cdiv class\x3d\\\x22info-grid\\\x22\x3e\\n      \x3cdiv class\x3d\\\x22info-card\\\x22\x3e\x3cdiv class\x3d\\\x22icon\\\x22\x3e👥\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22label\\\x22\x3e參加對象\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22value\\\x22\x3e全院同仁\x3c\\\/div\x3e\x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22info-card\\\x22\x3e\x3cdiv class\x3d\\\x22icon\\\x22\x3e🎫\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22label\\\x22\x3e每場名額\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22value\\\x22\x3e上限 50 位\x3c\\\/div\x3e\x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22info-card\\\x22\x3e\x3cdiv class\x3d\\\x22icon\\\x22\x3e⏰\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22label\\\x22\x3e報名截止\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22value\\\x22\x3e115\/05\/15\x3c\\\/div\x3e\x3c\\\/div\x3e\\n      \x3cdiv class\x3d\\\x22info-card\\\x22\x3e\x3cdiv class\x3d\\\x22icon\\\x22\x3e💻\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22label\\\x22\x3e注意事項\x3c\\\/div\x3e\x3cdiv class\x3d\\\x22value\\\x22\x3e需自備電腦\x3c\\\/div\x3e\x3c\\\/div\x3e\\n    \x3c\\\/div\x3e\\n  \x3c\\\/div\x3e\\n\x3c\\\/section\x3e\\n\\n\x3csection class\x3d\\\x22section\\\x22 style\x3d\\\x22padding-top:0\\\x22 id\x3d\\\x22register-section\\\x22\x3e\\n  \x3cdiv class\x3d\\\x22container\\\x22\x3e\\n    \x3cdiv class\x3d\\\x22section-header\\\x22\x3e\\n      \x3cdiv class\x3d\\\x22section-label\\\x22\x3eRegistration\x3c\\\/div\x3e\\n      \x3ch2 class\x3d\\\x22section-title\\\x22\x3e線上報名 \/ 查詢\x3c\\\/h2\x3e\\n    \x3c\\\/div\x3e\\n    \x3cdiv class\x3d\\\x22tab-container\\\x22\x3e\\n      \x3cnav class\x3d\\\x22tab-nav\\\x22\x3e\\n        \x3cbutton class\x3d\\\x22tab-btn active\\\x22 onclick\x3d\\\x22switchTab(\x27register\x27)\\\x22\x3e📝 我要報名\x3c\\\/button\x3e\\n        \x3cbutton class\x3d\\\x22tab-btn\\\x22 onclick\x3d\\\x22switchTab(\x27query\x27)\\\x22\x3e🔍 查詢報名\x3c\\\/button\x3e\\n      \x3c\\\/nav\x3e\\n\\n      \x3cdiv class\x3d\\\x22tab-body active\\\x22 id\x3d\\\x22tab-register\\\x22\x3e\\n        \x3cdiv class\x3d\\\x22form-grid\\\x22\x3e\\n          \x3cdiv class\x3d\\\x22form-group\\\x22\x3e\x3clabel\x3e姓名 \x3cspan class\x3d\\\x22req\\\x22\x3e*\x3c\\\/span\x3e\x3c\\\/label\x3e\x3cinput type\x3d\\\x22text\\\x22 id\x3d\\\x22reg-name\\\x22 placeholder\x3d\\\x22請輸入姓名\\\x22\x3e\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22form-group\\\x22\x3e\x3clabel\x3e人事號 \x3cspan class\x3d\\\x22req\\\x22\x3e*\x3c\\\/span\x3e\x3c\\\/label\x3e\x3cinput type\x3d\\\x22text\\\x22 id\x3d\\\x22reg-id\\\x22 placeholder\x3d\\\x22請輸入人事號\\\x22\x3e\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22form-group\\\x22\x3e\x3clabel\x3e單位 \x3cspan class\x3d\\\x22req\\\x22\x3e*\x3c\\\/span\x3e\x3c\\\/label\x3e\x3cinput type\x3d\\\x22text\\\x22 id\x3d\\\x22reg-dept\\\x22 placeholder\x3d\\\x22請輸入單位名稱\\\x22\x3e\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22form-group\\\x22\x3e\x3clabel\x3e分機號碼\x3c\\\/label\x3e\x3cinput type\x3d\\\x22text\\\x22 id\x3d\\\x22reg-ext\\\x22 placeholder\x3d\\\x22請輸入分機\\\x22\x3e\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22form-group full\\\x22\x3e\x3clabel\x3e電子信箱\x3c\\\/label\x3e\x3cinput type\x3d\\\x22email\\\x22 id\x3d\\\x22reg-email\\\x22 placeholder\x3d\\\x22選填，用於接收報名確認通知\\\x22\x3e\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22form-group full\\\x22\x3e\\n            \x3clabel\x3e欲報名場次 \x3cspan class\x3d\\\x22req\\\x22\x3e*\x3c\\\/span\x3e（可複選）\x3c\\\/label\x3e\\n            \x3cdiv class\x3d\\\x22checkbox-group\\\x22 id\x3d\\\x22course-checkboxes\\\x22\x3e\\n              \x3clabel class\x3d\\\x22checkbox-label\\\x22 data-course\x3d\\\x22生成式 AI 工作術\\\x22\x3e\\n                \x3cinput type\x3d\\\x22checkbox\\\x22 value\x3d\\\x22生成式 AI 工作術\\\x22\x3e\\n                \x3cspan\x3e第一部：生成式 AI 工作術\x3c\\\/span\x3e\\n                \x3cspan class\x3d\\\x22cb-info\\\x22\x3e\x3cspan class\x3d\\\x22cb-remaining\\\x22 id\x3d\\\x22cb-cap-0\\\x22\x3e--\x3c\\\/span\x3e\x3cspan class\x3d\\\x22cb-date\\\x22\x3e06\/04\x3c\\\/span\x3e\x3c\\\/span\x3e\\n              \x3c\\\/label\x3e\\n              \x3clabel class\x3d\\\x22checkbox-label\\\x22 data-course\x3d\\\x22影音自造時代\\\x22\x3e\\n                \x3cinput type\x3d\\\x22checkbox\\\x22 value\x3d\\\x22影音自造時代\\\x22\x3e\\n                \x3cspan\x3e第二部：影音自造時代\x3c\\\/span\x3e\\n                \x3cspan class\x3d\\\x22cb-info\\\x22\x3e\x3cspan class\x3d\\\x22cb-remaining\\\x22 id\x3d\\\x22cb-cap-1\\\x22\x3e--\x3c\\\/span\x3e\x3cspan class\x3d\\\x22cb-date\\\x22\x3e07\/09\x3c\\\/span\x3e\x3c\\\/span\x3e\\n              \x3c\\\/label\x3e\\n              \x3clabel class\x3d\\\x22checkbox-label\\\x22 data-course\x3d\\\x22零程式碼革命\\\x22\x3e\\n                \x3cinput type\x3d\\\x22checkbox\\\x22 value\x3d\\\x22零程式碼革命\\\x22\x3e\\n                \x3cspan\x3e第三部：零程式碼革命\x3c\\\/span\x3e\\n                \x3cspan class\x3d\\\x22cb-info\\\x22\x3e\x3cspan class\x3d\\\x22cb-remaining\\\x22 id\x3d\\\x22cb-cap-2\\\x22\x3e--\x3c\\\/span\x3e\x3cspan class\x3d\\\x22cb-date\\\x22\x3e07\/23\x3c\\\/span\x3e\x3c\\\/span\x3e\\n              \x3c\\\/label\x3e\\n            \x3c\\\/div\x3e\\n          \x3c\\\/div\x3e\\n        \x3c\\\/div\x3e\\n        \x3cdiv style\x3d\\\x22margin-top:24px;text-align:center\\\x22\x3e\\n          \x3cbutton class\x3d\\\x22btn btn-primary\\\x22 id\x3d\\\x22btn-submit\\\x22 onclick\x3d\\\x22submitRegistration()\\\x22\x3e送出報名\x3c\\\/button\x3e\\n        \x3c\\\/div\x3e\\n        \x3cdiv class\x3d\\\x22msg\\\x22 id\x3d\\\x22reg-msg\\\x22\x3e\x3c\\\/div\x3e\\n      \x3c\\\/div\x3e\\n\\n      \x3cdiv class\x3d\\\x22tab-body\\\x22 id\x3d\\\x22tab-query\\\x22\x3e\\n        \x3cdiv class\x3d\\\x22form-grid\\\x22\x3e\\n          \x3cdiv class\x3d\\\x22form-group\\\x22\x3e\x3clabel\x3e人事號 \x3cspan class\x3d\\\x22req\\\x22\x3e*\x3c\\\/span\x3e\x3c\\\/label\x3e\x3cinput type\x3d\\\x22text\\\x22 id\x3d\\\x22query-id\\\x22 placeholder\x3d\\\x22請輸入您的人事號\\\x22\x3e\x3c\\\/div\x3e\\n          \x3cdiv class\x3d\\\x22form-group\\\x22 style\x3d\\\x22justify-content:flex-end\\\x22\x3e\x3cbutton class\x3d\\\x22btn btn-outline\\\x22 onclick\x3d\\\x22queryRegistration()\\\x22\x3e🔍 查詢\x3c\\\/button\x3e\x3c\\\/div\x3e\\n        \x3c\\\/div\x3e\\n        \x3cdiv class\x3d\\\x22msg\\\x22 id\x3d\\\x22query-msg\\\x22\x3e\x3c\\\/div\x3e\\n        \x3cdiv class\x3d\\\x22query-results\\\x22 id\x3d\\\x22query-results\\\x22\x3e\x3c\\\/div\x3e\\n      \x3c\\\/div\x3e\\n    \x3c\\\/div\x3e\\n  \x3c\\\/div\x3e\\n\x3c\\\/section\x3e\\n\\n\x3cfooter class\x3d\\\x22footer\\\x22\x3e\\n  \x3cstrong\x3e佳里奇美醫院\x3c\\\/strong\x3e ｜ 數位醫管新紀元：AI 智慧職能應用培育課程 \x26copy; 2026\\n\x3c\\\/footer\x3e\\n\\n\x3cscript\x3e\\nconst COURSE_KEYS \x3d \x5b\x27生成式 AI 工作術\x27, \x27影音自造時代\x27, \x27零程式碼革命\x27\x5d;\\nconst MAX \x3d 50;\\n\\nfunction switchTab(t)\x7b\\n  document.querySelectorAll(\x27.tab-btn\x27).forEach((b,i)\x3d\x3e\x7bb.classList.toggle(\x27active\x27,(t\x3d\x3d\x3d\x27register\x27\x26\x26i\x3d\x3d\x3d0)||(t\x3d\x3d\x3d\x27query\x27\x26\x26i\x3d\x3d\x3d1))\x7d);\\n  document.getElementById(\x27tab-register\x27).classList.toggle(\x27active\x27,t\x3d\x3d\x3d\x27register\x27);\\n  document.getElementById(\x27tab-query\x27).classList.toggle(\x27active\x27,t\x3d\x3d\x3d\x27query\x27);\\n\x7d\\nfunction showMsg(id,type,text)\x7bconst el\x3ddocument.getElementById(id);el.className\x3d\x27msg show msg-\x27+type;el.innerHTML\x3dtext\x7d\\n\\nfunction capColor(r)\x7bif(r\x3c\x3d0)return\x27red\x27;if(r\x3c\x3d10)return\x27amber\x27;return\x27green\x27\x7d\\n\\nfunction updateCapacityUI(counts)\x7b\\n  COURSE_KEYS.forEach((key,i)\x3d\x3e\x7b\\n    const info\x3dcounts\x5bkey\x5d;if(!info)return;\\n    const remaining\x3dinfo.remaining, registered\x3dinfo.registered;\\n    const color\x3dcapColor(remaining), pct\x3dMath.min(100,(registered\/MAX)*100);\\n    const cardEl\x3ddocument.getElementById(\x27cap-card-\x27+i);\\n    if(cardEl) cardEl.innerHTML\x3d\x27\x3cdiv class\x3d\\\x22capacity-bar-wrap\\\x22\x3e\x3cdiv class\x3d\\\x22capacity-bar \x27+color+\x27\\\x22 style\x3d\\\x22width:\x27+pct+\x27%\\\x22\x3e\x3c\\\/div\x3e\x3c\\\/div\x3e\x3cspan class\x3d\\\x22capacity-text \x27+color+\x27\\\x22\x3e\x27+(remaining\x3e0?\x27剩餘 \x27+remaining+\x27 \/ \x27+MAX:\x27已額滿\x27)+\x27\x3c\\\/span\x3e\x27;\\n    const cbEl\x3ddocument.getElementById(\x27cb-cap-\x27+i);\\n    if(cbEl)\x7bcbEl.className\x3d\x27cb-remaining \x27+color;cbEl.textContent\x3dremaining\x3e0?\x27餘 \x27+remaining:\x27額滿\x27\x7d\\n    const label\x3ddocument.querySelector(\x27.checkbox-label\x5bdata-course\x3d\\\x22\x27+key+\x27\\\x22\x5d\x27);\\n    if(label)\x7b\\n      const cb\x3dlabel.querySelector(\x27input\x5btype\x3d\\\x22checkbox\\\x22\x5d\x27);\\n      if(remaining\x3c\x3d0)\x7blabel.classList.add(\x27disabled\x27);cb.disabled\x3dtrue;cb.checked\x3dfalse\x7d\\n      else\x7blabel.classList.remove(\x27disabled\x27);cb.disabled\x3dfalse\x7d\\n    \x7d\\n  \x7d);\\n\x7d\\n\\n\\ngoogle.script.run\\n  .withSuccessHandler(function(data)\x7b\\n    if(data \x26\x26 data.counts) updateCapacityUI(data.counts);\\n  \x7d)\\n  .withFailureHandler(function(err)\x7b console.log(\x27取得名額失敗\x27,err); \x7d)\\n  .getCounts();\\n\\n\\nfunction submitRegistration()\x7b\\n  const name\x3ddocument.getElementById(\x27reg-name\x27).value.trim();\\n  const empId\x3ddocument.getElementById(\x27reg-id\x27).value.trim();\\n  const dept\x3ddocument.getElementById(\x27reg-dept\x27).value.trim();\\n  const ext\x3ddocument.getElementById(\x27reg-ext\x27).value.trim();\\n  const email\x3ddocument.getElementById(\x27reg-email\x27).value.trim();\\n  const courses\x3d\x5b\x5d.slice.call(document.querySelectorAll(\x27.checkbox-group input:checked\x27)).map(function(c)\x7breturn c.value\x7d);\\n  if(!name||!empId||!dept)\x7bshowMsg(\x27reg-msg\x27,\x27error\x27,\x27⚠️ 請填寫所有必填欄位（姓名、工號、單位）。\x27);return\x7d\\n  if(courses.length\x3d\x3d\x3d0)\x7bshowMsg(\x27reg-msg\x27,\x27error\x27,\x27⚠️ 請至少勾選一個場次。\x27);return\x7d\\n\\n  var btn\x3ddocument.getElementById(\x27btn-submit\x27);\\n  btn.disabled\x3dtrue;btn.innerHTML\x3d\x27\x3cspan class\x3d\\\x22spinner\\\x22\x3e\x3c\\\/span\x3e 報名中...\x27;\\n\\n  var payload\x3d\x7b\\n    action:\x27register\x27, name:name, empId:empId, dept:dept, ext:ext, email:email,\\n    courses:courses.join(\x27, \x27),\\n    timestamp:new Date().toLocaleString(\x27zh-TW\x27,\x7btimeZone:\x27Asia\/Taipei\x27\x7d)\\n  \x7d;\\n\\n  google.script.run\\n    .withSuccessHandler(function(data)\x7b\\n      if(data.status\x3d\x3d\x3d\x27success\x27)\x7b\\n        showMsg(\x27reg-msg\x27,\x27success\x27,\x27✅ 報名成功！\x3cbr\x3e\x3cstrong\x3e\x27+name+\x27\x3c\\\/strong\x3e（工號 \x27+empId+\x27），已報名：\x27+courses.join(\x27、\x27)+\x27\x3cbr\x3e資料已寫入系統，如需修改請洽課程承辦人。\x27);\\n        \x5b\x27reg-name\x27,\x27reg-id\x27,\x27reg-dept\x27,\x27reg-ext\x27,\x27reg-email\x27\x5d.forEach(function(id)\x7bdocument.getElementById(id).value\x3d\x27\x27\x7d);\\n        \x5b\x5d.slice.call(document.querySelectorAll(\x27.checkbox-group input:checked\x27)).forEach(function(c)\x7bc.checked\x3dfalse\x7d);\\n      \x7delse if(data.status\x3d\x3d\x3d\x27full\x27)\x7b\\n        showMsg(\x27reg-msg\x27,\x27error\x27,\x27⚠️ \x27+data.message);\\n      \x7delse if(data.status\x3d\x3d\x3d\x27duplicate\x27)\x7b\\n        showMsg(\x27reg-msg\x27,\x27error\x27,\x27⚠️ \x27+data.message);\\n      \x7delse\x7b\\n        showMsg(\x27reg-msg\x27,\x27error\x27,\x27❌ 報名失敗：\x27+(data.message||\x27未知錯誤\x27));\\n      \x7d\\n      if(data.counts) updateCapacityUI(data.counts);\\n      btn.disabled\x3dfalse;btn.innerHTML\x3d\x27送出報名\x27;\\n    \x7d)\\n    .withFailureHandler(function(err)\x7b\\n      showMsg(\x27reg-msg\x27,\x27error\x27,\x27❌ 報名失敗：\x27+err.message);\\n      btn.disabled\x3dfalse;btn.innerHTML\x3d\x27送出報名\x27;\\n    \x7d)\\n    .registerStudent(payload);\\n\x7d\\n\\n\\nfunction queryRegistration()\x7b\\n  var empId\x3ddocument.getElementById(\x27query-id\x27).value.trim();\\n  if(!empId)\x7bshowMsg(\x27query-msg\x27,\x27error\x27,\x27⚠️ 請輸入人事號。\x27);return\x7d\\n  showMsg(\x27query-msg\x27,\x27info\x27,\x27🔄 查詢中...\x27);\\n  document.getElementById(\x27query-results\x27).innerHTML\x3d\x27\x27;\\n\\n  google.script.run\\n    .withSuccessHandler(function(data)\x7b\\n      if(data.counts) updateCapacityUI(data.counts);\\n      if(data.status\x3d\x3d\x3d\x27success\x27 \x26\x26 data.records \x26\x26 data.records.length\x3e0)\x7b\\n        showMsg(\x27query-msg\x27,\x27success\x27,\x27✅ 查詢到 \x27+data.records.length+\x27 筆報名紀錄：\x27);\\n        var html\x3ddata.records.map(function(r)\x7b\\n          return \x27\x3cdiv class\x3d\\\x22result-card\\\x22\x3e\x3ch4\x3e\x27+r.name+\x27（\x27+r.empId+\x27）\x3c\\\/h4\x3e\x27\\n            +\x27\x3cdiv class\x3d\\\x22result-row\\\x22\x3e\x3cspan class\x3d\\\x22result-label\\\x22\x3e單位\x3c\\\/span\x3e\x3cspan class\x3d\\\x22result-value\\\x22\x3e\x27+r.dept+\x27\x3c\\\/span\x3e\x3c\\\/div\x3e\x27\\n            +\x27\x3cdiv class\x3d\\\x22result-row\\\x22\x3e\x3cspan class\x3d\\\x22result-label\\\x22\x3e報名場次\x3c\\\/span\x3e\x3cspan class\x3d\\\x22result-value\\\x22\x3e\x27+r.courses+\x27\x3c\\\/span\x3e\x3c\\\/div\x3e\x27\\n            +\x27\x3cdiv class\x3d\\\x22result-row\\\x22\x3e\x3cspan class\x3d\\\x22result-label\\\x22\x3e報名時間\x3c\\\/span\x3e\x3cspan class\x3d\\\x22result-value\\\x22\x3e\x27+r.timestamp+\x27\x3c\\\/span\x3e\x3c\\\/div\x3e\x27\\n            +\x27\x3cdiv class\x3d\\\x22result-row\\\x22\x3e\x3cspan class\x3d\\\x22result-label\\\x22\x3e狀態\x3c\\\/span\x3e\x3cspan class\x3d\\\x22status-badge status-confirmed\\\x22\x3e已報名\x3c\\\/span\x3e\x3c\\\/div\x3e\x3c\\\/div\x3e\x27;\\n        \x7d).join(\x27\x27);\\n        document.getElementById(\x27query-results\x27).innerHTML\x3dhtml;\\n      \x7delse if(data.status\x3d\x3d\x3d\x27not_found\x27)\x7b\\n        showMsg(\x27query-msg\x27,\x27info\x27,\x27📭 查無此人事號的報名紀錄。\x27);\\n      \x7delse\x7b\\n        showMsg(\x27query-msg\x27,\x27error\x27,\x27❌ 查詢失敗：\x27+(data.message||\x27未知錯誤\x27));\\n      \x7d\\n    \x7d)\\n    .withFailureHandler(function(err)\x7b\\n      showMsg(\x27query-msg\x27,\x27error\x27,\x27❌ 查詢失敗：\x27+err.message);\\n    \x7d)\\n    .queryStudent(empId);\\n\x7d\\n\x3c\\\/script\x3e\\n\x3c\\\/body\x3e\\n\x3c\\\/html\x3e\\n\x22,\x22ncc\x22:\x22\x7b\\\x22awhs\\\x22:true\x7d\x22\x7d", "AJuLMu2qvLDsFXaXXGs7HBl49il-KWjjRA:1774933931821", undefined, true , true  , "true", "https:\/\/n-iwhws5wo4jgyvdeebfylqlphgylirqbarap23zq-0lu-script.googleusercontent.com", "");}
-el.src = 'https:\/\/n-iwhws5wo4jgyvdeebfylqlphgylirqbarap23zq-0lu-script.googleusercontent.com\/userCodeAppPanel?createOAuthDialog\x3dtrue';
-}());
+
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-chip"><span class="dot"></span> 佳里奇美醫院</div>
+    <h1>數位醫管新紀元<br>AI 智慧職能應用培育課程</h1>
+    <p class="hero-sub"><strong>推動智慧醫療、優化職場環境</strong> ── AI 賦能三部曲</p>
+    <div class="hero-cta">
+      <a href="#register-section" class="cta-primary">立即報名 →</a>
+      <a href="#courses" class="cta-ghost">瀏覽課程</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="courses">
+  <div class="container">
+    <div class="section-header"><div class="section-label">Curriculum</div><h2 class="section-title">課程總覽</h2></div>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-num">Part 01</div><h3>生成式 AI 工作術</h3>
+        <p class="course-desc">Prompt 技巧、個人助理、製作簡報、數據分析——用 AI 重塑日常工作流程。</p>
+        <div class="course-meta">
+          <div class="meta-item"><div class="meta-icon">📅</div> 115/06/04（週四）</div>
+          <div class="meta-item"><div class="meta-icon">🕙</div> 10:00 – 12:00</div>
+          <div class="meta-item"><div class="meta-icon">📍</div> A81 會議室</div>
+        </div>
+        <div class="capacity-badge" id="cap-card-0"><span class="capacity-loading">⏳ 載入名額中...</span></div>
+      </div>
+      <div class="course-card">
+        <div class="course-num">Part 02</div><h3>影音自造時代</h3>
+        <p class="course-desc">腳本生成、影音製作、虛擬應用——零基礎也能產出專業級影音內容。</p>
+        <div class="course-meta">
+          <div class="meta-item"><div class="meta-icon">📅</div> 115/07/09（週四）</div>
+          <div class="meta-item"><div class="meta-icon">🕙</div> 10:00 – 12:00</div>
+          <div class="meta-item"><div class="meta-icon">📍</div> A81 會議室</div>
+        </div>
+        <div class="capacity-badge" id="cap-card-1"><span class="capacity-loading">⏳ 載入名額中...</span></div>
+      </div>
+      <div class="course-card">
+        <div class="course-num">Part 03</div><h3>零程式碼革命</h3>
+        <p class="course-desc">資訊網頁、無代碼架設、整合應用——不寫程式也能打造數位工具。</p>
+        <div class="course-meta">
+          <div class="meta-item"><div class="meta-icon">📅</div> 115/07/23（週四）</div>
+          <div class="meta-item"><div class="meta-icon">🕙</div> 10:00 – 12:00</div>
+          <div class="meta-item"><div class="meta-icon">📍</div> A81 會議室</div>
+        </div>
+        <div class="capacity-badge" id="cap-card-2"><span class="capacity-loading">⏳ 載入名額中...</span></div>
+      </div>
+    </div>
+    <div class="tools-bar">
+      <span class="tools-label">Tools ▸</span>
+      <div class="tool-chip"><span class="tool-dot" style="background:#10a37f"></span> ChatGPT</div>
+      <div class="tool-chip"><span class="tool-dot" style="background:#6b8afd"></span> Gemini</div>
+      <div class="tool-chip"><span class="tool-dot" style="background:#d4a574"></span> Claude</div>
+      <div class="tool-chip"><span class="tool-dot" style="background:#e06666"></span> NotebookLM</div>
+      <div class="tool-chip"><span class="tool-dot" style="background:#6aaa64"></span> Apps Script</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header"><div class="section-label">Information</div><h2 class="section-title">報名須知</h2></div>
+    <div class="info-grid">
+      <div class="info-card"><div class="icon">👥</div><div class="label">參加對象</div><div class="value">全院同仁</div></div>
+      <div class="info-card"><div class="icon">🎫</div><div class="label">每場名額</div><div class="value">上限 50 位</div></div>
+      <div class="info-card"><div class="icon">⏰</div><div class="label">報名截止</div><div class="value">115/05/15</div></div>
+      <div class="info-card"><div class="icon">💻</div><div class="label">注意事項</div><div class="value">需自備電腦</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="register-section">
+  <div class="container">
+    <div class="section-header"><div class="section-label">Registration</div><h2 class="section-title">線上報名 / 查詢</h2></div>
+    <div class="tab-container">
+      <nav class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('register')">📝 我要報名</button>
+        <button class="tab-btn" onclick="switchTab('query')">🔍 查詢報名</button>
+      </nav>
+      <div class="tab-body active" id="tab-register">
+        <div class="form-grid">
+          <div class="form-group"><label>姓名 <span class="req">*</span></label><input type="text" id="reg-name" placeholder="請輸入姓名"></div>
+          <div class="form-group"><label>工號 <span class="req">*</span></label><input type="text" id="reg-id" placeholder="請輸入工號"></div>
+          <div class="form-group"><label>單位 <span class="req">*</span></label><input type="text" id="reg-dept" placeholder="請輸入單位名稱"></div>
+          <div class="form-group"><label>分機號碼</label><input type="text" id="reg-ext" placeholder="請輸入分機"></div>
+          <div class="form-group full"><label>電子信箱</label><input type="email" id="reg-email" placeholder="選填，用於接收報名確認通知"></div>
+          <div class="form-group full">
+            <label>欲報名場次 <span class="req">*</span>（可複選）</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label" data-course="生成式 AI 工作術"><input type="checkbox" value="生成式 AI 工作術"><span>第一部：生成式 AI 工作術</span><span class="cb-info"><span class="cb-remaining" id="cb-cap-0">--</span><span class="cb-date">06/04</span></span></label>
+              <label class="checkbox-label" data-course="影音自造時代"><input type="checkbox" value="影音自造時代"><span>第二部：影音自造時代</span><span class="cb-info"><span class="cb-remaining" id="cb-cap-1">--</span><span class="cb-date">07/09</span></span></label>
+              <label class="checkbox-label" data-course="零程式碼革命"><input type="checkbox" value="零程式碼革命"><span>第三部：零程式碼革命</span><span class="cb-info"><span class="cb-remaining" id="cb-cap-2">--</span><span class="cb-date">07/23</span></span></label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:24px;text-align:center"><button class="btn btn-primary" id="btn-submit" onclick="submitRegistration()">送出報名</button></div>
+        <div class="msg" id="reg-msg"></div>
+      </div>
+      <div class="tab-body" id="tab-query">
+        <div class="form-grid">
+          <div class="form-group"><label>工號 <span class="req">*</span></label><input type="text" id="query-id" placeholder="請輸入您的工號"></div>
+          <div class="form-group" style="justify-content:flex-end"><button class="btn btn-outline" onclick="queryRegistration()">🔍 查詢</button></div>
+        </div>
+        <div class="msg" id="query-msg"></div>
+        <div class="query-results" id="query-results"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><strong>佳里奇美醫院</strong> ｜ 數位醫管新紀元：AI 智慧職能應用培育課程 &copy; 2026</footer>
+
+<script>
+// ══════════ API 設定 ══════════
+var API_URL = 'https://script.google.com/macros/s/AKfycbwi0fRUFgltBi28uYCgBQba_YM8vUzKL62iMkxF4i8i3lWjnl4MCBF7wUjMOuZB9Jgl/exec';
+var COURSE_KEYS = ['生成式 AI 工作術', '影音自造時代', '零程式碼革命'];
+var MAX = 50;
+
+function switchTab(t){
+  var btns = document.querySelectorAll('.tab-btn');
+  for(var i=0;i<btns.length;i++){btns[i].classList.toggle('active',(t==='register'&&i===0)||(t==='query'&&i===1))}
+  document.getElementById('tab-register').classList.toggle('active',t==='register');
+  document.getElementById('tab-query').classList.toggle('active',t==='query');
+}
+function showMsg(id,type,text){var el=document.getElementById(id);el.className='msg show msg-'+type;el.innerHTML=text}
+function capColor(r){if(r<=0)return'red';if(r<=10)return'amber';return'green'}
+
+function updateCapacityUI(counts){
+  for(var idx=0;idx<COURSE_KEYS.length;idx++){
+    var key=COURSE_KEYS[idx];
+    var info=counts[key];if(!info)continue;
+    var remaining=info.remaining,registered=info.registered;
+    var color=capColor(remaining),pct=Math.min(100,(registered/MAX)*100);
+    var cardEl=document.getElementById('cap-card-'+idx);
+    if(cardEl)cardEl.innerHTML='<div class="capacity-bar-wrap"><div class="capacity-bar '+color+'" style="width:'+pct+'%"></div></div><span class="capacity-text '+color+'">'+(remaining>0?'剩餘 '+remaining+' / '+MAX:'已額滿')+'</span>';
+    var cbEl=document.getElementById('cb-cap-'+idx);
+    if(cbEl){cbEl.className='cb-remaining '+color;cbEl.textContent=remaining>0?'餘 '+remaining:'額滿'}
+    var label=document.querySelector('.checkbox-label[data-course="'+key+'"]');
+    if(label){var cb=label.querySelector('input[type="checkbox"]');if(remaining<=0){label.classList.add('disabled');cb.disabled=true;cb.checked=false}else{label.classList.remove('disabled');cb.disabled=false}}
+  }
+}
+
+// ── 取得名額（GET）──
+function fetchCounts(){
+  fetch(API_URL+'?action=counts')
+    .then(function(r){return r.json()})
+    .then(function(data){if(data&&data.counts)updateCapacityUI(data.counts)})
+    .catch(function(e){console.log('取得名額失敗',e)});
+}
+fetchCounts();
+
+// ── 報名（POST）──
+function submitRegistration(){
+  var name=document.getElementById('reg-name').value.trim();
+  var empId=document.getElementById('reg-id').value.trim();
+  var dept=document.getElementById('reg-dept').value.trim();
+  var ext=document.getElementById('reg-ext').value.trim();
+  var email=document.getElementById('reg-email').value.trim();
+  var checked=document.querySelectorAll('.checkbox-group input:checked');
+  var courses=[];for(var i=0;i<checked.length;i++){courses.push(checked[i].value)}
+  if(!name||!empId||!dept){showMsg('reg-msg','error','⚠️ 請填寫所有必填欄位（姓名、工號、單位）。');return}
+  if(courses.length===0){showMsg('reg-msg','error','⚠️ 請至少勾選一個場次。');return}
+
+  var btn=document.getElementById('btn-submit');
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> 報名中...';
+
+  var payload={
+    action:'register',name:name,empId:empId,dept:dept,ext:ext,email:email,
+    courses:courses.join(', '),
+    timestamp:new Date().toLocaleString('zh-TW',{timeZone:'Asia/Taipei'})
+  };
+
+  fetch(API_URL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain'},
+    body:JSON.stringify(payload)
+  })
+  .then(function(r){return r.json()})
+  .then(function(data){
+    if(data.status==='success'){
+      showMsg('reg-msg','success','✅ 報名成功！<br><strong>'+name+'</strong>（工號 '+empId+'），已報名：'+courses.join('、')+'<br>資料已寫入系統，如需修改請洽課程承辦人。');
+      var ids=['reg-name','reg-id','reg-dept','reg-ext','reg-email'];
+      for(var i=0;i<ids.length;i++){document.getElementById(ids[i]).value=''}
+      var cbs=document.querySelectorAll('.checkbox-group input:checked');
+      for(var j=0;j<cbs.length;j++){cbs[j].checked=false}
+    }else if(data.status==='full'){showMsg('reg-msg','error','⚠️ '+data.message)}
+    else if(data.status==='duplicate'){showMsg('reg-msg','error','⚠️ '+data.message)}
+    else{showMsg('reg-msg','error','❌ 報名失敗：'+(data.message||'未知錯誤'))}
+    if(data.counts)updateCapacityUI(data.counts);
+    btn.disabled=false;btn.innerHTML='送出報名';
+  })
+  .catch(function(err){
+    showMsg('reg-msg','error','❌ 報名失敗，請稍後再試。');
+    btn.disabled=false;btn.innerHTML='送出報名';
+  });
+}
+
+// ── 查詢（GET）──
+function queryRegistration(){
+  var empId=document.getElementById('query-id').value.trim();
+  if(!empId){showMsg('query-msg','error','⚠️ 請輸入工號。');return}
+  showMsg('query-msg','info','🔄 查詢中...');
+  document.getElementById('query-results').innerHTML='';
+
+  fetch(API_URL+'?action=query&empId='+encodeURIComponent(empId))
+  .then(function(r){return r.json()})
+  .then(function(data){
+    if(data.counts)updateCapacityUI(data.counts);
+    if(data.status==='success'&&data.records&&data.records.length>0){
+      showMsg('query-msg','success','✅ 查詢到 '+data.records.length+' 筆報名紀錄：');
+      var html='';
+      for(var i=0;i<data.records.length;i++){
+        var r=data.records[i];
+        html+='<div class="result-card"><h4>'+r.name+'（'+r.empId+'）</h4>'
+          +'<div class="result-row"><span class="result-label">單位</span><span class="result-value">'+r.dept+'</span></div>'
+          +'<div class="result-row"><span class="result-label">報名場次</span><span class="result-value">'+r.courses+'</span></div>'
+          +'<div class="result-row"><span class="result-label">報名時間</span><span class="result-value">'+r.timestamp+'</span></div>'
+          +'<div class="result-row"><span class="result-label">狀態</span><span class="status-badge status-confirmed">已報名</span></div></div>';
+      }
+      document.getElementById('query-results').innerHTML=html;
+    }else if(data.status==='not_found'){showMsg('query-msg','info','📭 查無此工號的報名紀錄。')}
+    else{showMsg('query-msg','error','❌ 查詢失敗：'+(data.message||'未知錯誤'))}
+  })
+  .catch(function(err){showMsg('query-msg','error','❌ 查詢失敗，請稍後再試。')});
+}
 </script>
 </body>
 </html>
