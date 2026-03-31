@@ -197,7 +197,7 @@ html{scroll-behavior:smooth}
       <div class="tab-body active" id="tab-register">
         <div class="form-grid">
           <div class="form-group"><label>姓名 <span class="req">*</span></label><input type="text" id="reg-name" placeholder="請輸入姓名"></div>
-          <div class="form-group"><label>工號 <span class="req">*</span></label><input type="text" id="reg-id" placeholder="請輸入工號"></div>
+          <div class="form-group"><label>人事號 <span class="req">*</span></label><input type="text" id="reg-id" placeholder="請輸入人事號"></div>
           <div class="form-group"><label>單位 <span class="req">*</span></label><input type="text" id="reg-dept" placeholder="請輸入單位名稱"></div>
           <div class="form-group"><label>分機號碼</label><input type="text" id="reg-ext" placeholder="請輸入分機"></div>
           <div class="form-group full"><label>電子信箱</label><input type="email" id="reg-email" placeholder="選填，用於接收報名確認通知"></div>
@@ -215,7 +215,7 @@ html{scroll-behavior:smooth}
       </div>
       <div class="tab-body" id="tab-query">
         <div class="form-grid">
-          <div class="form-group"><label>工號 <span class="req">*</span></label><input type="text" id="query-id" placeholder="請輸入您的工號"></div>
+          <div class="form-group"><label>人事號 <span class="req">*</span></label><input type="text" id="query-id" placeholder="請輸入您的人事號"></div>
           <div class="form-group" style="justify-content:flex-end"><button class="btn btn-outline" onclick="queryRegistration()">🔍 查詢</button></div>
         </div>
         <div class="msg" id="query-msg"></div>
@@ -275,7 +275,7 @@ function submitRegistration(){
   var email=document.getElementById('reg-email').value.trim();
   var checked=document.querySelectorAll('.checkbox-group input:checked');
   var courses=[];for(var i=0;i<checked.length;i++){courses.push(checked[i].value)}
-  if(!name||!empId||!dept){showMsg('reg-msg','error','⚠️ 請填寫所有必填欄位（姓名、工號、單位）。');return}
+  if(!name||!empId||!dept){showMsg('reg-msg','error','⚠️ 請填寫所有必填欄位（姓名、人事號、單位）。');return}
   if(courses.length===0){showMsg('reg-msg','error','⚠️ 請至少勾選一個場次。');return}
 
   var btn=document.getElementById('btn-submit');
@@ -295,7 +295,7 @@ function submitRegistration(){
   .then(function(r){return r.json()})
   .then(function(data){
     if(data.status==='success'){
-      showMsg('reg-msg','success','✅ 報名成功！<br><strong>'+name+'</strong>（工號 '+empId+'），已報名：'+courses.join('、')+'<br>資料已寫入系統，如需修改請洽課程承辦人。');
+      showMsg('reg-msg','success','✅ 報名成功！<br><strong>'+name+'</strong>（人事號 '+empId+'），已報名：'+courses.join('、')+'<br>資料已寫入系統，如需修改請洽課程承辦人。');
       var ids=['reg-name','reg-id','reg-dept','reg-ext','reg-email'];
       for(var i=0;i<ids.length;i++){document.getElementById(ids[i]).value=''}
       var cbs=document.querySelectorAll('.checkbox-group input:checked');
@@ -315,7 +315,7 @@ function submitRegistration(){
 // ── 查詢（GET）──
 function queryRegistration(){
   var empId=document.getElementById('query-id').value.trim();
-  if(!empId){showMsg('query-msg','error','⚠️ 請輸入工號。');return}
+  if(!empId){showMsg('query-msg','error','⚠️ 請輸入人事號。');return}
   showMsg('query-msg','info','🔄 查詢中...');
   document.getElementById('query-results').innerHTML='';
 
@@ -335,7 +335,7 @@ function queryRegistration(){
           +'<div class="result-row"><span class="result-label">狀態</span><span class="status-badge status-confirmed">已報名</span></div></div>';
       }
       document.getElementById('query-results').innerHTML=html;
-    }else if(data.status==='not_found'){showMsg('query-msg','info','📭 查無此工號的報名紀錄。')}
+    }else if(data.status==='not_found'){showMsg('query-msg','info','📭 查無此人事號的報名紀錄。')}
     else{showMsg('query-msg','error','❌ 查詢失敗：'+(data.message||'未知錯誤'))}
   })
   .catch(function(err){showMsg('query-msg','error','❌ 查詢失敗，請稍後再試。')});
